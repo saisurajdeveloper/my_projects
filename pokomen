@@ -1,0 +1,46 @@
+from time import sleep
+
+
+def password():
+    pin = int(input("please enter your account pin"))
+    if pin == 1234:
+        print("correct account,pleae wait we are fetching your account data")
+        sleep(2)
+        return True
+    else:
+        print("incorrect password,autentication is failed!!")
+        return False
+
+
+def atm_start():
+    balance = 0
+    print("hello welcome to saisuraj atm")
+    if password():
+        print("press '1' for Checking balance")
+        print("press '2' for Withdrawl")
+        print("press '3' for Deposit")
+        print("press '4' for exiting out from the atm")
+        choose = int(input("choose which money tranction fits for your day"))
+        if choose == 1:
+            print("please wait we are fetching your data....")
+            sleep(2)
+            print("your account balance is:", balance)
+        elif choose == 2:
+            withdrawl = int(
+                input(
+                    "how much money do you want to withdrawl from your account:"
+                ))
+            balance = balance - withdrawl
+            print(
+                f"you have sucessfully taken{withdrawl}rupees from your account"
+            )
+        elif choose == 3:
+            deposit = int(
+                input("how much money do you want to add in your account"))
+            balance = balance + deposit
+            print(f"you have sucessfully added{deposit}rupees in your account")
+        elif choose == 4:
+            print("thanks for visiting our ATM,have a good day!!")
+            
+            
+atm_start() 
